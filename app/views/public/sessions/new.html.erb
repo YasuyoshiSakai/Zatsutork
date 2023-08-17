@@ -8,10 +8,10 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row">
       <div class="col-md-4 text-center">
-        <%= f.label :email, "メールアドレス" %>
+        <%= f.label :username, "ユーザー名" %>
       </div>
       <div class="col-md-8 mb-3">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
       </div>
     </div>
 

@@ -6,11 +6,14 @@
   </div>
 
   <div class="nav-links">
-    <% if customer_signed_in? %>
-      <li><%= link_to '話題', words_path %></li>
-      <li><%= link_to 'Sign Out', destroy_customer_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'Sign In', new_customer_session_path %></li>
-    <% end %>
+    <ul>
+      <% if customer_signed_in? %>
+        <li><%= link_to '話題投稿', new_word_path %></li>
+        <li><%= link_to '話題一覧', words_path %></li>
+        <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_customer_session_path %></li>
+      <% end %>
+    </ul>
   </div>
 </nav>

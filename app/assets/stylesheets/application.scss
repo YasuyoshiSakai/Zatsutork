@@ -18,15 +18,13 @@
 }
 
 .nav-links ul {
-  list-style: none;
   display: flex;
-  align-items: center;
-  margin: 0;
+  list-style-type: none;
   padding: 0;
 }
 
 .nav-links li {
-  margin-left: 20px;
+  margin-right: 10px; /* 適切なマージンを設定して間隔を調整 */
 }
 
 .nav-links a {

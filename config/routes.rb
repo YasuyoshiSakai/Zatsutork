@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -16,6 +17,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :customers, only: [:index, :show, :edit, :update]
     # 顧客（一覧、詳細、編集、情報の更新）
 
+    resources :words, only: [:new, :create]
     get 'admin/search' => 'searchs#search', as: 'search'
 
   end
@@ -33,8 +35,9 @@ devise_for :customers, skip: [:passwords], controllers: {
 
     get "/homes/about" => "homes#about", as: "about"
 
-    resources :words, only: [:index, :show]
-    # 話題（一覧、詳細）
+    resources :words, only: [:index, :new, :create,:show]
+
+    get 'complete', to: 'words#complete'
 
     get 'customers/mypage' => 'customers#show'
     # 顧客のマイページ
@@ -50,6 +53,7 @@ devise_for :customers, skip: [:passwords], controllers: {
 
     get 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
     # 顧客の退会処理(ステータスの更新)
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end

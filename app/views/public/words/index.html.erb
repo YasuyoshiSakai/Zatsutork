@@ -1,0 +1,8 @@
+<% @words.each do |word| %>
+  <div>
+    <h2><%= word.content %></h2>
+    <p>評価: <%= word.rating %></p>
+    <p>投稿日時: <%= word.created_at %></p>
+    <%= link_to '詳細を見る', word_path(word) %>
+  </div>
+<% end %>
