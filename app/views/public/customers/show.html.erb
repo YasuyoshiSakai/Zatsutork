@@ -1,0 +1,12 @@
+<!-- app/views/public/customers/show.html.erb -->
+<p><%= @customer.username %> さんのマイページ</p>
+<p>メールアドレス: <%= @customer.email %></p>
+
+<h2>投稿した話題</h2>
+<ul>
+  <% @words.each do |word| %>
+    <li><%= link_to word.content, word_path(word) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'トップページに戻る', root_path %>

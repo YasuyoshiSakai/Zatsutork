@@ -1,0 +1,11 @@
+<!-- app/views/genres/show.html.erb -->
+<h1><%= @genre.name %></h1>
+
+<h2>Words in this Genre</h2>
+<ul>
+  <% @words.each do |word| %>
+    <li><%= word.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Genres', genres_path %>

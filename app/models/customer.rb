@@ -8,4 +8,13 @@ class Customer < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :words
+  has_many :likes, dependent: :destroy
+  def customer_status
+    if is_withdrawal == true
+      "退会"
+    else
+      "有効"
+    end
+  end
+
 end

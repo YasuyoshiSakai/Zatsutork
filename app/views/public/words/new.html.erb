@@ -1,5 +1,8 @@
 <%= form_with(model: @word, url: words_path, local: true) do |form| %>
-  <%= form.text_area :title, placeholder: "投稿話題名を入力してください" %>
+  <%= form.text_field :title, placeholder: "投稿話題名を入力してください" %>
   <%= form.text_area :content, placeholder: "話題についての備考を入力してください" %>
+
+  <%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選択してください" %>
+
   <%= form.submit "投稿する" %>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_15_102943) do
+ActiveRecord::Schema.define(version: 2023_08_19_072952) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +38,21 @@ ActiveRecord::Schema.define(version: 2023_08_15_102943) do
     t.index ["username"], name: "index_customers_on_username", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "word_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_likes_on_customer_id"
+    t.index ["word_id"], name: "index_likes_on_word_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,13 +66,27 @@ ActiveRecord::Schema.define(version: 2023_08_15_102943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "word_genres", force: :cascade do |t|
+    t.integer "word_id"
+    t.integer "genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "words", force: :cascade do |t|
+    t.string "title"
     t.text "content"
     t.integer "rating"
     t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id", null: false
+    t.integer "views_count", default: 0
     t.index ["customer_id"], name: "index_words_on_customer_id"
+    t.index ["genre_id"], name: "index_words_on_genre_id"
   end
 
+  add_foreign_key "likes", "customers"
+  add_foreign_key "likes", "words"
+  add_foreign_key "words", "genres"
 end

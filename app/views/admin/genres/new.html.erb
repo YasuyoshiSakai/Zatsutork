@@ -1,0 +1,8 @@
+<%= form_with(model: @genre, url: admin_genres_path, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name, "ジャンル名" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <%= form.submit "ジャンル追加" %>
+<% end %>

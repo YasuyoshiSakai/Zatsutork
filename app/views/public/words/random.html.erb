@@ -1,0 +1,8 @@
+<p>ランダムな話題</p>
+<% if @random_word %>
+  <p>内容: <%= @random_word.content %></p>
+  <!-- 他の表示内容も追加 -->
+<% else %>
+  <p>話題が存在しません。</p>
+<% end %>
+<%= link_to '別のランダムな話題を表示', random_word_path %>

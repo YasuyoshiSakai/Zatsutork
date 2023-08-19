@@ -1,5 +1,11 @@
 <h1><%= @word.content %></h1>
 <p>評価: <%= @word.rating %></p>
 <p>投稿日時: <%= @word.created_at %></p>
-
+<p>閲覧数: <%= @word.views_count %></p>
+<p>いいね数: <%= @likes.count %></p>
+<% if current_customer && @likes.exists?(customer: current_customer) %>
+  <%= link_to "いいねを取り消す", word_like_path(@word, @likes.find_by(customer: current_customer)), method: :delete %>
+<% else %>
+  <%= link_to "いいねする", word_likes_path(@word), method: :post %>
+<% end %>
 <%= link_to '戻る', words_path %>

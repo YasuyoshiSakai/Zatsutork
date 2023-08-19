@@ -1,0 +1,6 @@
+<h1>閲覧数ランキング</h1>
+<ol>
+  <% @top_viewed_words.each do |word| %>
+    <li><%= link_to word.content, word_path(word) %>（閲覧数: <%= word.views_count %>）</li>
+  <% end %>
+</ol>

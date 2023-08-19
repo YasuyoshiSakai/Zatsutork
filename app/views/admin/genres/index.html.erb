@@ -1,0 +1,27 @@
+<!-- app/views/admin/genres/index.html.erb -->
+
+<h1>ジャンル一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.id %></td>
+        <td><%= genre.name %></td>
+        <td>
+          <%= link_to "編集", edit_admin_genre_path(genre) %>
+          <!-- 他の操作ボタンをここに追加 -->
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "新規ジャンル追加", new_admin_genre_path %>
