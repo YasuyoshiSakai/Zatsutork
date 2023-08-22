@@ -8,6 +8,7 @@
   <div class="nav-links">
     <ul>
       <% if customer_signed_in? %>
+        <li><%= link_to 'test', view_ranking_path %></li>
         <li><%= link_to 'ランキング', view_ranking_path %></li>
         <li><%= link_to 'ランダム表示', random_word_path %></li>
         <li><%= link_to '話題投稿', new_word_path %></li>
