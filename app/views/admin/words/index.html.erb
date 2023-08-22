@@ -1,0 +1,26 @@
+<!-- app/views/admin/words/index.html.erb -->
+<h1>Word一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.id %></td>
+        <td><%= word.title %></td>
+        <td><%= word.content %></td>
+        <td>
+          <%= link_to '詳細', admin_word_path(word) %>
+          <%= link_to '編集', edit_admin_word_path(word) %>
+          <%= link_to '削除', admin_word_path(word), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

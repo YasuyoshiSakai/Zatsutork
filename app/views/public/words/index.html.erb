@@ -1,5 +1,6 @@
 <% @words.each do |word| %>
   <div>
+     <h2><%= word.title %></h2>
     <h2><%= word.content %></h2>
     <%= link_to '詳細を見る', word_path(word) %>
   </div>

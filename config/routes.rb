@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
     resources :genres, only: [:new, :index, :create, :edit, :update]
     resources :customers, only: [:index, :edit, :update, :destroy]
-    resources :words, only: [:new, :create]
+    resources :words, only: [:index, :show, :edit]
     get 'admin/search' => 'searchs#search', as: 'search'
   end
 
