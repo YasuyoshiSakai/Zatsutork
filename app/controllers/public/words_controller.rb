@@ -1,7 +1,6 @@
 class Public::WordsController < ApplicationController
   def index
     @words = Word.all
-    @words = current_customer.words
   end
 
   def new
@@ -30,6 +29,7 @@ end
     @word = Word.find(params[:id])
     @word.increment!(:views_count) # 閲覧数をインクリメント
     @likes = @word.likes
+    @word_comment = WordComment.new
   end
 
   def need_login

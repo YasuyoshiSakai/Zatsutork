@@ -1,8 +1,22 @@
-<%= form_with(model: @genre, url: admin_genre_path(@genre), local: true, method: :patch) do |form| %>
-  <div class="field">
-    <%= form.label :name, "ジャンル名" %>
-    <%= form.text_field :name %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h4 class="card-title">ジャンルを編集</h4>
+          <%= form_with(model: @genre, url: admin_genre_path(@genre), local: true, method: :patch) do |form| %>
+            <div class="form-group">
+              <%= form.label :name, "ジャンル名" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <%= form.submit "更新", class: "btn btn-primary" %>
+          <% end %>
 
-  <%= form.submit "更新" %>
-<% end %>
+          <div class="mt-3">
+            <%= link_to "削除", admin_genre_path(@genre), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

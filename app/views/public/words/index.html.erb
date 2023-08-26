@@ -1,6 +1,11 @@
-<% @words.each do |word| %>
-  <div>
-    <h2><%= word.content %></h2>
-    <%= link_to '詳細を見る', word_path(word) %>
-  </div>
-<% end %>
+<div class="container mt-5">
+  <h2>話題一覧</h2>
+  <% @words.each do |word| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5><%= "話題：#{word.title}　備考：#{word.content}" %></h5>
+        <%= link_to '詳細を見る', word_path(word), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

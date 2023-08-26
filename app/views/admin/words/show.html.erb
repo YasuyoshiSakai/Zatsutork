@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="my-4"><%= @word.title %></h1>
+      <p><%= @word.content %></p>
+      <ul>
+  <h6>コメント一覧<h6/>
+
+  <% @word.word_comments.each do |comment| %>
+    <li>
+      <strong><%= comment.customer.username %>さん</strong> <!-- コメントをしたユーザー名+さん -->
+      <p><%= comment.comment %></p>
+      <p class="text-muted"><%= comment.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    </li>
+  <% end %>
+</ul>
+      <%= link_to '一覧に戻る', admin_words_path, class: 'btn btn-secondary my-2' %>
+    </div>
+  </div>
+</div>

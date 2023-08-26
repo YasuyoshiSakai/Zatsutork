@@ -1,8 +1,15 @@
-<p>ランダムな話題</p>
-<% if @random_word %>
-  <p>内容: <%= @random_word.content %></p>
-  <!-- 他の表示内容も追加 -->
-<% else %>
-  <p>話題が存在しません。</p>
-<% end %>
-<%= link_to '別のランダムな話題を表示', random_word_path %>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">ランダムな話題</h2>
+      <% if @random_word %>
+        <p class="card-text">話題: <%= @random_word.title %></p>
+        <p class="card-text">内容: <%= @random_word.content %></p>
+        <!-- 他の表示内容も追加 -->
+      <% else %>
+        <p class="card-text">話題が存在しません。</p>
+      <% end %>
+      <%= link_to '別のランダムな話題を表示', random_word_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

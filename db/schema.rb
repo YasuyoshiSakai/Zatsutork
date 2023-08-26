@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_19_072952) do
+ActiveRecord::Schema.define(version: 2023_08_26_015117) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2023_08_19_072952) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "word_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "customer_id"
+    t.integer "word_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_word_comments_on_customer_id"
+  end
+
   create_table "word_genres", force: :cascade do |t|
     t.integer "word_id"
     t.integer "genre_id"
@@ -88,5 +97,6 @@ ActiveRecord::Schema.define(version: 2023_08_19_072952) do
 
   add_foreign_key "likes", "customers"
   add_foreign_key "likes", "words"
+  add_foreign_key "word_comments", "customers"
   add_foreign_key "words", "genres"
 end
