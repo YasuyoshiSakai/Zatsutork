@@ -13,6 +13,7 @@
     <div class="form-group">
       <%= form.label :genre_id, "ジャンル" %>
       <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: "ジャンルを選択してください" }, class: "form-control" %>
+      <%= link_to "新しいジャンルを追加する", new_genre_path, class: "btn btn-sm btn-secondary mt-2" %>
     </div>
   <br>
     <%= form.submit "投稿する", class: "btn btn-primary" %>

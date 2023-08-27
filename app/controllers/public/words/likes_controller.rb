@@ -1,4 +1,4 @@
-class Public::Likes::LikesController < ApplicationController
+class Public::Words::LikesController < ApplicationController
   before_action :authenticate_customer! # ログインしているか確認
 
   def create

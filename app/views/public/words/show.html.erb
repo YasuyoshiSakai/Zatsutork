@@ -7,11 +7,11 @@
       <p class="card-text">投稿日時: <%= @word.created_at %></p>
       <p class="card-text">閲覧数: <%= @word.views_count %></p>
       <p class="card-text">いいね数: <%= @likes.count %></p>
-      <% if current_customer && @likes.exists?(customer: current_customer) %>
-        <%= link_to "いいねを取り消す", word_like_path(@word, @likes.find_by(customer: current_customer)), method: :delete, class: "btn btn-danger" %>
-      <% else %>
-        <%= link_to "いいねする", word_likes_path(@word), method: :post, class: "btn btn-success" %>
-      <% end %>
+<% if current_customer && @likes.exists?(customer: current_customer) %>
+  <%= link_to "いいねを取り消す", word_like_path(@word, @likes.find_by(customer: current_customer)), method: :delete, class: "btn btn-danger" %>
+<% else %>
+  <%= link_to "いいねする", word_likes_path(@word), method: :post, class: "btn btn-success" %>
+<% end %>
       <%= form_with model: [@word, @word_comment] do |f| %>
         <%= f.text_area :comment, rows:'5', placeholder: "コメント欄", class: "w-100" %>
         <%= f.submit "送信" %>

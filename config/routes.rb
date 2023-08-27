@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :likes, module: :words, only: [:create, :destroy]
       resources :word_comments, only: [:create, :destroy]
     end
+    resources :genres, only: [:new, :create]
     get 'random_word', to: 'words#random', as: 'random_word'
     get 'need', to: 'customers#need'
     get 'view_ranking', to: 'words#view_ranking'

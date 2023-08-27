@@ -41,6 +41,8 @@ end
 
   def view_ranking
     @top_viewed_words = Word.top_viewed(10) # 上位10件を取得する
+    @recent_words = Word.order(created_at: :desc).limit(5)
+    @recent_genres = Genre.order(created_at: :desc).limit(5)
   end
 
   private
