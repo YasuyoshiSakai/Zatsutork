@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">人気ランキング</h3>
+      <ul class="list-group mt-3">
+        <% @ranked_words.each_with_index do |word, index| %>
+          <li class="list-group-item">
+            <span class="badge badge-primary badge-pill" style="color: black;"><%= index + 1 %>位</span>
+            <%= link_to "#{word.title}（いいね数: #{word.likes.count}）", word_path(word) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

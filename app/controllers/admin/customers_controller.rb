@@ -3,6 +3,11 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.all
   end
 
+  def show
+    @customer = Customer.find(params[:id])
+    @words = @customer.words
+  end
+
   def edit
     @customer = Customer.find(params[:id])
   end
@@ -19,14 +24,22 @@ class Admin::CustomersController < ApplicationController
 
   def destroy
     @customer = Customer.find(params[:id])
-    @customer.destroy
-    flash[:notice] = "ユーザーを削除しました"
+
+    if @customer.is_withdrawal
+    end
+
+    if @customer.destroy
+      flash[:notice] = "ユーザーを削除しました"
+    else
+      flash[:alert] = "ユーザーの削除に失敗しました"
+    end
+
     redirect_to admin_customers_path
   end
 
   private
 
   def customer_params
-    params.require(:customer).permit(:username, :email, :other_attributes)
+    params.require(:customer).permit(:username, :email, :other_attributes, :is_withdrawal)
   end
 end

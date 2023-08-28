@@ -9,6 +9,10 @@ class Customer < ApplicationRecord
 
   has_many :words
   has_many :likes, dependent: :destroy
+  has_many :word_comments, dependent: :destroy
+
+
+
   def customer_status
     if is_withdrawal == true
       "退会"

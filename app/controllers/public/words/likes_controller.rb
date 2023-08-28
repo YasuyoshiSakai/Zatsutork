@@ -1,4 +1,8 @@
+<<<<<<< HEAD:app/controllers/public/likes_controller.rb
 class Public::LikesController < ApplicationController
+=======
+class Public::Words::LikesController < ApplicationController
+>>>>>>> develop:app/controllers/public/words/likes_controller.rb
   before_action :authenticate_customer! # ログインしているか確認
 
   def create

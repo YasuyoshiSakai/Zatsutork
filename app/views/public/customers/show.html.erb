@@ -1,12 +1,19 @@
-<!-- app/views/public/customers/show.html.erb -->
-<p><%= @customer.username %> さんのマイページ</p>
-<p>メールアドレス: <%= @customer.email %></p>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title"><%= @customer.username %> さんのマイページ</h1>
+      <p class="card-text">メールアドレス: <%= @customer.email %></p>
+    </div>
+  </div>
 
-<h2>投稿した話題</h2>
-<ul>
-  <% @words.each do |word| %>
-    <li><%= link_to word.content, word_path(word) %></li>
-  <% end %>
-</ul>
+  <h2 class="mt-4">投稿した話題</h2>
+  <ul class="list-group mt-3">
+    <% @words.each do |word| %>
+      <li class="list-group-item">
+        <%= link_to word.content, word_path(word) %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to 'トップページに戻る', root_path %>
+  <%= link_to 'トップページに戻る', root_path, class: "btn btn-primary mt-4" %>
+</div>

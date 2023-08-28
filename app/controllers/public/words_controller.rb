@@ -1,7 +1,6 @@
 class Public::WordsController < ApplicationController
   def index
     @words = Word.all
-    @words = current_customer.words
   end
 
   def new
@@ -30,6 +29,7 @@ end
     @word = Word.find(params[:id])
     @word.increment!(:views_count) # 閲覧数をインクリメント
     @likes = @word.likes
+    @word_comment = WordComment.new
   end
 
   def need_login
@@ -41,6 +41,10 @@ end
 
   def view_ranking
     @top_viewed_words = Word.top_viewed(10) # 上位10件を取得する
+  end
+
+  def like_ranking
+    @ranked_words = Word.includes(:likes).sort_by { |word| -word.likes.size }.take(10)
   end
 
   private

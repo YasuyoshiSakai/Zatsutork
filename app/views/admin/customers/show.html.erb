@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h4 class="card-title"><%= @customer.username %>さんの会員詳細</h4>
+          <table class="table table-borderless mt-4">
+            <tbody>
+              <tr>
+                <th class="align-middle">会員ID</th>
+                <td><%= @customer.username %></td>
+              </tr>
+              <tr>
+                <th class="align-middle">メールアドレス</th>
+                <td><%= @customer.email %></td>
+              </tr>
+              <tr>
+                <th class="align-middle">会員ステータス</th>
+                <td><%= @customer.customer_status %></td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 class="mt-4">投稿した話題</h5>
+          <ul class="list-group mt-3">
+            <% @words.each do |word| %>
+              <li class="list-group-item">
+                <%= link_to word.content, word_path(word) %>
+              </li>
+            <% end %>
+          </ul>
+          <div class="mt-4">
+            <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-success mr-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

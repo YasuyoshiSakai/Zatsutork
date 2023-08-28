@@ -1,6 +1,15 @@
-<h1>閲覧数ランキング</h1>
-<ol>
-  <% @top_viewed_words.each do |word| %>
-    <li><%= link_to word.content, word_path(word) %>（閲覧数: <%= word.views_count %>）</li>
-  <% end %>
-</ol>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">閲覧数ランキング</h3>
+      <ul class="list-group mt-3">
+        <% @top_viewed_words.each_with_index do |word, index| %>
+          <li class="list-group-item">
+            <span class="badge badge-primary mr-2" style="color: black;"><%= index + 1 %>位</span>
+            <%= link_to "#{word.title}（閲覧数: #{word.views_count}）", word_path(word) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

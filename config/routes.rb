@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
 
   # 管理者用デバイスルート
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
@@ -9,9 +8,16 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
 
+<<<<<<< HEAD
     resources :genres, only: [:new, :index, :create, :edit, :update]
     resources :customers, only: [:index, :edit, :update, :destroy]
     resources :words, only: [:index, :show, :edit]
+=======
+    resources :genres, only: [:new, :index, :create, :edit, :update, :destroy]
+    resources :customers, only: [:index, :edit, :show, :update, :destroy]
+    resources :words, only: [:index, :show, :edit, :update, :destroy]
+    resources :word_comments, only: [:destroy]
+>>>>>>> develop
     get 'admin/search' => 'searchs#search', as: 'search'
   end
 
@@ -28,10 +34,13 @@ Rails.application.routes.draw do
 
     resources :words, only: [:index, :new, :create, :show] do
       resources :likes, module: :words, only: [:create, :destroy]
+      resources :word_comments, only: [:create, :destroy]
     end
+    resources :genres, only: [:new, :create]
     get 'random_word', to: 'words#random', as: 'random_word'
     get 'need', to: 'customers#need'
     get 'view_ranking', to: 'words#view_ranking'
+    get 'like_ranking', to: 'words#like_ranking', as: 'like_ranking'
     resources :customers, only: [:show]
     get 'complete', to: 'words#complete'
     get 'customers/mypage' => 'customers#show'

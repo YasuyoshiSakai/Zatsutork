@@ -4,6 +4,8 @@ class Word < ApplicationRecord
   belongs_to :genre
   has_many :word_genres
   has_many :genres, through: :word_genres
+  has_many :word_comments, dependent: :destroy
+  has_many :images
 
   def liked_by?(customer)
     likes.exists?(customer_id: customer.id)
