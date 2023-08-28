@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_26_015117) do
+ActiveRecord::Schema.define(version: 2023_08_28_020446) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2023_08_26_015117) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.boolean "is_withdrawal", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
@@ -42,6 +43,13 @@ ActiveRecord::Schema.define(version: 2023_08_26_015117) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "word_id", null: false
+    t.index ["word_id"], name: "index_images_on_word_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -89,12 +97,13 @@ ActiveRecord::Schema.define(version: 2023_08_26_015117) do
     t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id", null: false
     t.integer "views_count", default: 0
+    t.integer "genre_id", null: false
     t.index ["customer_id"], name: "index_words_on_customer_id"
     t.index ["genre_id"], name: "index_words_on_genre_id"
   end
 
+  add_foreign_key "images", "words"
   add_foreign_key "likes", "customers"
   add_foreign_key "likes", "words"
   add_foreign_key "word_comments", "customers"

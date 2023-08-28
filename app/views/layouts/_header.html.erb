@@ -8,7 +8,8 @@
   <div class="nav-links">
     <ul>
       <% if customer_signed_in? %>
-        <li><%= link_to 'ランキング', view_ranking_path %></li>
+        <li><%= link_to '人気ランキング', like_ranking_path %></li>
+        <li><%= link_to '閲覧ランキング', view_ranking_path %></li>
         <li><%= link_to 'ランダム表示', random_word_path %></li>
         <li><%= link_to '話題投稿', new_word_path %></li>
         <li><%= link_to '話題一覧', words_path %></li>
@@ -18,11 +19,12 @@
       <% elsif admin_signed_in? %>
         <li><%= link_to "投稿内容編集",  admin_words_path %></li>
         <li><%= link_to "会員編集",  admin_customers_path %></li>
-        <li><%= link_to "ジャンル追加",  admin_genres_path %></li>
+        <li><%= link_to "ジャンル編集",  admin_genres_path %></li>
         <li><%= link_to "ログアウト",  destroy_admin_session_path, method: :delete %></li>
         <li>管理者ログイン中</li>
       <% else %>
-        <li><%= link_to 'ランキング', view_ranking_path %></li>
+        <li><%= link_to '人気ランキング', like_ranking_path %></li>
+        <li><%= link_to '閲覧ランキング', view_ranking_path %></li>
         <li><%= link_to 'ランダム表示', random_word_path %></li>
         <li><%= link_to '話題投稿', need_path %></li>
         <li><%= link_to '話題一覧', words_path %></li

@@ -26,8 +26,6 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
 
     if @customer.is_withdrawal
-      # 退会処理を実行
-      # 例えば、関連データの削除やステータスの更新など
     end
 
     if @customer.destroy

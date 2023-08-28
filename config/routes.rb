@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get 'random_word', to: 'words#random', as: 'random_word'
     get 'need', to: 'customers#need'
     get 'view_ranking', to: 'words#view_ranking'
+    get 'like_ranking', to: 'words#like_ranking', as: 'like_ranking'
     resources :customers, only: [:show]
     get 'complete', to: 'words#complete'
     get 'customers/mypage' => 'customers#show'

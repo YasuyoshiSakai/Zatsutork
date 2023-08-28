@@ -12,10 +12,6 @@ class Customer < ApplicationRecord
   has_many :word_comments, dependent: :destroy
 
 
-  def is_withdrawal
-    # 退会ステータスを判定するロジックを実装する
-    # 例えば、self.withdrawal_status == true のような条件を使用
-  end
 
   def customer_status
     if is_withdrawal == true
