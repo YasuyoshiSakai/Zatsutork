@@ -44,9 +44,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:show]
     get 'complete', to: 'words#complete'
     get 'customers/mypage' => 'customers#show'
-    get 'customers/information/edit' => 'customers#edit'
-    patch 'customers/information/update' => 'customers#update'
-    get 'customers/check' => 'customers#check', as: 'customers_check'
     get 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
   end
 end
