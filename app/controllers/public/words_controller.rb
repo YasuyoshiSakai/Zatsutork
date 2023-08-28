@@ -36,7 +36,7 @@ end
   end
 
   def random
-    @random_word = Word.order("RANDOM()").first
+    @random_word = Word.order("rand()").first
   end
 
   def view_ranking
