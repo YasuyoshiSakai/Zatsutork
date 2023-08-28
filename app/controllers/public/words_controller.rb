@@ -1,6 +1,6 @@
 class Public::WordsController < ApplicationController
   def index
-    @words = Word.all
+    @words = Word.paginate(page: params[:page], per_page: 10) # 1ページあたり10件ずつ表示
   end
 
   def new

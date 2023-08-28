@@ -25,13 +25,6 @@ class Admin::WordsController < ApplicationController
   def update
     @word = Word.find(params[:id])
     if @word.update(word_params)
-<<<<<<< HEAD
-      # 更新が成功した場合の処理
-    else
-      # 更新が失敗した場合の処理
-    end
-  end
-=======
       flash[:notice] = "Wordを更新しました。"
       redirect_to admin_word_path(@word)
     else
@@ -46,5 +39,4 @@ class Admin::WordsController < ApplicationController
   def word_params
     params.require(:word).permit(:title, :content) # 必要な属性を適宜追加
   end
->>>>>>> develop
 end

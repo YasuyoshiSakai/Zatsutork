@@ -62,6 +62,8 @@ group :production do
   gem 'mysql2'
 end
 gem 'bootstrap'
+gem 'kaminari'
+gem 'will_paginate'
 
 gem "net-smtp"
 gem "net-pop"

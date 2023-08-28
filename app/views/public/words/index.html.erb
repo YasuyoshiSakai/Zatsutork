@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-<% @words.each do |word| %>
-  <div>
-     <h2><%= word.title %></h2>
-    <h2><%= word.content %></h2>
-    <%= link_to '詳細を見る', word_path(word) %>
-  </div>
-<% end %>
-=======
 <div class="container mt-5">
-  <h2>話題一覧</h2>
+  <h2 class="text-center">話題一覧</h2>
   <% @words.each do |word| %>
     <div class="card mb-3">
       <div class="card-body">
@@ -17,5 +8,8 @@
       </div>
     </div>
   <% end %>
+
+  <div class="text-center">
+    <%= will_paginate @words, renderer: BootstrapPaginationRenderer, class: 'pagination-lg' %> <!-- ページネーションを表示 -->
+  </div>
 </div>
->>>>>>> develop

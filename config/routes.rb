@@ -8,16 +8,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
 
-<<<<<<< HEAD
-    resources :genres, only: [:new, :index, :create, :edit, :update]
-    resources :customers, only: [:index, :edit, :update, :destroy]
-    resources :words, only: [:index, :show, :edit]
-=======
     resources :genres, only: [:new, :index, :create, :edit, :update, :destroy]
     resources :customers, only: [:index, :edit, :show, :update, :destroy]
     resources :words, only: [:index, :show, :edit, :update, :destroy]
     resources :word_comments, only: [:destroy]
->>>>>>> develop
     get 'admin/search' => 'searchs#search', as: 'search'
   end
 
