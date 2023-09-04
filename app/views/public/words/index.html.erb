@@ -3,7 +3,7 @@
   <% @words.each do |word| %>
     <div class="card mb-3">
       <div class="card-body">
-        <h5><%= "話題：#{word.title}　備考：#{word.content}" %></h5>
+        <h5><%= "話題：#{word.title}　備考：#{word.content} 感情分析スコア:#{word.score}" %></h5>
         <%= link_to '詳細を見る', word_path(word), class: "btn btn-primary" %>
       </div>
     </div>

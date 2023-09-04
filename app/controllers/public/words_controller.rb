@@ -10,6 +10,7 @@ class Public::WordsController < ApplicationController
 def create
   if customer_signed_in?
     @word = current_customer.words.new(word_params)
+    @word.score = Language.get_data(word_params[:content])  #この行を追加
     @genre = Genre.find_by(id: word_params[:genre_id])
     if @word.save
       flash[:notice] = "投稿が完了しました！投稿ありがとうございます♪"
@@ -50,6 +51,6 @@ end
   private
 
 def word_params
-  params.require(:word).permit(:title, :content, :genre_id) # :genre_id を追加
+  params.require(:word).permit(:title, :content, :genre_id,) # :genre_id を追加
 end
 end

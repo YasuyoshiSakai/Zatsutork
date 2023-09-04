@@ -7,6 +7,7 @@
       <p class="card-text">投稿日時: <%= @word.created_at %></p>
       <p class="card-text">閲覧数: <%= @word.views_count %></p>
       <p class="card-text">いいね数: <%= @likes.count %></p>
+      <p class="card-text">本文の感情分析スコア[<%= @word.score %>]</p>
 <% if current_customer && @likes.exists?(customer: current_customer) %>
   <%= link_to "いいねを取り消す", word_like_path(@word, @likes.find_by(customer: current_customer)), method: :delete, class: "btn btn-danger" %>
 <% else %>

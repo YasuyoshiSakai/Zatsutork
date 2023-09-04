@@ -7,6 +7,10 @@ class Word < ApplicationRecord
   has_many :word_comments, dependent: :destroy
   has_many :images
 
+  def score=(value)
+    self[:score] = value
+  end
+
   def liked_by?(customer)
     likes.exists?(customer_id: customer.id)
   end
