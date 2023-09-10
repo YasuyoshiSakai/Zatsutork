@@ -28,7 +28,7 @@ Thiscussion
 ・友人家族等とのレクリエーションに​
 
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
+ER図:https://app.diagrams.net/#G170SuKeVHPE-w_OUv88knCgwFfi2YXlT-
 ​
 ## 開発環境
 - OS：windows(CentOS)
