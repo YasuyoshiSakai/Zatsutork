@@ -29,6 +29,7 @@ Thiscussion
 
 ## 設計書
 ER図:https://app.diagrams.net/#G170SuKeVHPE-w_OUv88knCgwFfi2YXlT-
+テーブル定義書：https://docs.google.com/spreadsheets/d/1Jv83_BQG5f2j7Q-OOLsl4v9P9WwqndJ3pCHeYfjrpLY/edit#gid=1544292436
 ​
 ## 開発環境
 - OS：windows(CentOS)
